@@ -16,3 +16,13 @@ pytest-tldr
 pytest-xdist
 dagit
 dagster
+certifi
+chardet
+coverage
+faker
+httpie
+idna
+Pygments
+requests
+selenium
+urllib3
