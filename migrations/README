@@ -1,0 +1,9 @@
+Single-database configuration for Flask.
+
+If using sqlite, in the migration script alway put this at the beginning of both
+upgrade and downgrade:
+
+op.execute("PRAGMA legacy_alter_table=ON")
+
+Also careful when renaming columns, the created script will drop the column and create a new one.
+That is not what you want.

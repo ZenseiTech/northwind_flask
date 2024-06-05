@@ -164,3 +164,6 @@ logs
 
 *.svg
 *.pdf
+
+northwind.sqlite
+./db_backup/northwind.sqlite

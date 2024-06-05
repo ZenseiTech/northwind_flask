@@ -5,19 +5,11 @@ import sys
 import click
 from dotenv import load_dotenv
 from flask_migrate import Migrate
+from flask_migrate import upgrade
 
 from app import create_app
 from app import db
-
-# from flask_migrate import upgrade
-
-
-# from app.models import Comment
-# from app.models import Follow
-# from app.models import Permission
-# from app.models import Post
-# from app.models import Role
-# from app.models import User
+from app.models import Category
 
 dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
 if os.path.exists(dotenv_path):
@@ -35,18 +27,13 @@ app = create_app(os.getenv("FLASK_CONFIG") or "default")
 migrate = Migrate(app, db)
 
 
-# @app.shell_context_processor
-# def make_shell_context():
-#     """Allow for access in flask shell the objects."""
-#     return dict(
-#         db=db,
-#         User=User,
-#         Follow=Follow,
-#         Role=Role,
-#         Permission=Permission,
-#         Post=Post,
-#         Comment=Comment,
-#     )
+@app.shell_context_processor
+def make_shell_context():
+    """Allow for access in flask shell the objects."""
+    return dict(
+        db=db,
+        Category=Category,
+    )
 
 
 @app.cli.command()
@@ -100,11 +87,20 @@ def profile(length, profile_dir):
     app.run()
 
 
-# @app.cli.command()
-# def deploy():
-#     """Run deployment tasks."""
-#     # migrate database to latest revision
-#     upgrade()
+@app.cli.command("data_load")
+def data_load():
+    """Call the load data to database."""
+    from db_backup import load_data
+
+    load_data.load(db)
+
+
+@app.cli.command()
+def deploy():
+    """Run deployment tasks."""
+    # migrate database to latest revision
+    upgrade()
+
 
 #     # create or update user roles
 #     Role.insert_roles()

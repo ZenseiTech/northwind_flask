@@ -7,7 +7,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     """Base class configuration."""
 
-    SECRET_KEY = os.environ.get("SECRET_KEY") or "hard to guess string"
+    SECRET_KEY = os.environ.get("SECRET_KEY")
     MAIL_SERVER = os.environ.get("MAIL_SERVER", "smtp.googlemail.com")
     MAIL_PORT = int(os.environ.get("MAIL_PORT", "587"))
     MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS", "true").lower() in ["true", "on", "1"]
@@ -36,7 +36,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DEV_DATABASE_URL"
-    ) or "sqlite:///" + os.path.join(basedir, "data-dev.sqlite")
+    ) or "sqlite:///" + os.path.join(basedir, "northwind.sqlite")
 
 
 class TestingConfig(Config):
