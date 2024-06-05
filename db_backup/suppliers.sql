@@ -11,8 +11,7 @@ Chuo-ku','Osaka','Eastern Asia','545','Japan','(06) 431-7877',NULL,'Mayumi''s (o
 Moonie Ponds','Melbourne','Victoria','3058','Australia','(03) 444-2343','(03) 444-6588',NULL),
 	 ('Specialty Biscuits, Ltd.','Peter Wilson','Sales Representative','29 King''s Way','Manchester','British Isles','M14 GSD','UK','(161) 555-4448',NULL,NULL),
 	 ('PB Knäckebröd AB','Lars Peterson','Sales Agent','Kaloadagatan 13','Göteborg',NULL,'S-345 67','Sweden ','031-987 65 43','031-987 65 91',NULL),
-	 ('Refrescos Americanas LTDA','Carlos Diaz','Marketing Manager','Av. das Americanas 12.890','São Paulo','South America','5442','Brazil','(11) 555 4640',NULL,NULL);
-INSERT INTO suppliers (company_name,contact_name,contact_title,address,city,region,postal_code,country,phone,fax,home_page) VALUES
+	 ('Refrescos Americanas LTDA','Carlos Diaz','Marketing Manager','Av. das Americanas 12.890','São Paulo','South America','5442','Brazil','(11) 555 4640',NULL,NULL),
 	 ('Heli Süßwaren GmbH & Co. KG','Petra Winkler','Sales Manager','Tiergartenstraße 5','Berlin','Western Europe','10785','Germany','(010) 9984510',NULL,NULL),
 	 ('Plutzer Lebensmittelgroßmärkte AG','Martin Bein','International Marketing Mgr.','Bogenallee 51','Frankfurt','Western Europe','60439','Germany','(069) 992755',NULL,'Plutzer (on the World Wide Web)#http://www.microsoft.com/accessdev/sampleapps/plutzer.htm#'),
 	 ('Nord-Ost-Fisch Handelsgesellschaft mbH','Sven Petersen','Coordinator Foreign Markets','Frahmredder 112a','Cuxhaven','Western Europe','27478','Germany','(04721) 8713','(04721) 8714',NULL),
@@ -24,8 +23,7 @@ Suite 210','Bend','North America','97101','USA','(503) 555-9931',NULL,NULL),
 	 ('Aux joyeux ecclésiastiques','Guylène Nodier','Sales Manager','203, Rue des Francs-Bourgeois','Paris','Western Europe','75004','France','(1) 03.83.00.68','(1) 03.83.00.62',NULL),
 	 ('New England Seafood Cannery','Robb Merchant','Wholesale Account Agent','Order Processing Dept.
 2100 Paul Revere Blvd.','Boston','North America','02134','USA','(617) 555-3267','(617) 555-3389',NULL),
-	 ('Leka Trading','Chandra Leka','Owner','471 Serangoon Loop, Suite #402','Singapore','South-East Asia','0512','Singapore','555-8787',NULL,NULL);
-INSERT INTO suppliers (company_name,contact_name,contact_title,address,city,region,postal_code,country,phone,fax,home_page) VALUES
+	 ('Leka Trading','Chandra Leka','Owner','471 Serangoon Loop, Suite #402','Singapore','South-East Asia','0512','Singapore','555-8787',NULL,NULL),
 	 ('Lyngbysild','Niels Petersen','Sales Manager','Lyngbysild
 Fiskebakken 10','Lyngby','Northern Europe','2800','Denmark','43844108','43844115',NULL),
 	 ('Zaanse Snoepfabriek','Dirk Luchte','Accounting Manager','Verkoop

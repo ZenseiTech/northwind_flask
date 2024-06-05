@@ -21,3 +21,5 @@ def __load_data__(db, filename):
 def load(db):
     """Load datas."""
     __load_data__(db, "./db_backup/categories.sql")
+    __load_data__(db, "./db_backup/products.sql")
+    __load_data__(db, "./db_backup/suppliers.sql")
