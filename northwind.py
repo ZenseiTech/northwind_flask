@@ -5,16 +5,19 @@ import sys
 import click
 from dotenv import load_dotenv
 from flask_migrate import Migrate
-from flask_migrate import upgrade
 
 from app import create_app
 from app import db
-from app.models import Comment
-from app.models import Follow
-from app.models import Permission
-from app.models import Post
-from app.models import Role
-from app.models import User
+
+# from flask_migrate import upgrade
+
+
+# from app.models import Comment
+# from app.models import Follow
+# from app.models import Permission
+# from app.models import Post
+# from app.models import Role
+# from app.models import User
 
 dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
 if os.path.exists(dotenv_path):
@@ -32,18 +35,18 @@ app = create_app(os.getenv("FLASK_CONFIG") or "default")
 migrate = Migrate(app, db)
 
 
-@app.shell_context_processor
-def make_shell_context():
-    """Allow for access in flask shell the objects."""
-    return dict(
-        db=db,
-        User=User,
-        Follow=Follow,
-        Role=Role,
-        Permission=Permission,
-        Post=Post,
-        Comment=Comment,
-    )
+# @app.shell_context_processor
+# def make_shell_context():
+#     """Allow for access in flask shell the objects."""
+#     return dict(
+#         db=db,
+#         User=User,
+#         Follow=Follow,
+#         Role=Role,
+#         Permission=Permission,
+#         Post=Post,
+#         Comment=Comment,
+#     )
 
 
 @app.cli.command()
@@ -97,17 +100,25 @@ def profile(length, profile_dir):
     app.run()
 
 
-@app.cli.command()
-def deploy():
-    """Run deployment tasks."""
-    # migrate database to latest revision
-    upgrade()
+# @app.cli.command()
+# def deploy():
+#     """Run deployment tasks."""
+#     # migrate database to latest revision
+#     upgrade()
 
-    # create or update user roles
-    Role.insert_roles()
+#     # create or update user roles
+#     Role.insert_roles()
 
-    # ensure all users are following themselves
-    User.add_self_follows()
+#     # ensure all users are following themselves
+#     User.add_self_follows()
+
+
+def create_secret_token():
+    """Create secre token to swarth CRFS."""
+    from itsdangerous import URLSafeSerializer
+
+    auth_s = URLSafeSerializer("secret key", "auth")
+    return auth_s.dumps({"id": 5, "name": "Secret word"})
 
 
 if __name__ == "__main__":
