@@ -89,3 +89,63 @@ class Employee(db.Model):
     def __repr__(self):
         """Representation."""
         return f"<Employees {self.first_name} {self.last_name}>"
+
+    class Customer(db.Model):
+        """Customer model."""
+
+        __tablename__ = "customers"
+
+        id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+        customer_id = db.Column(db.String(64), nullable=False, unique=True, index=True)
+        company_name = db.Column(db.String(64), nullable=False)
+        contact_name = db.Column(db.String(64), nullable=False)
+        contact_title = db.Column(db.String(64), nullable=False)
+        address = db.Column(db.String(64), nullable=True)
+        city = db.Column(db.String(64), nullable=True)
+        region = db.Column(db.String(64), nullable=True)
+        postal_code = db.Column(db.String(64), nullable=True)
+        country = db.Column(db.String(64), nullable=True)
+        phone = db.Column(db.String(64), nullable=True)
+        fax = db.Column(db.String(64), nullable=True)
+
+        def __repr__(self):
+            """Representation."""
+            return f"<Customers {self.company_name} {self.customer_id}>"
+
+    class Shipper(db.Model):
+        """Shipper model."""
+
+        __tablename__ = "shippers"
+
+        id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+        company_name = db.Column(db.String(64), nullable=False)
+        phone = db.Column(db.String(64), nullable=False)
+
+        def __repr__(self):
+            """Representation."""
+            return f"<Shippers {self.company_name} {self.phone}>"
+
+    class Order(db.Model):
+        """Order model."""
+
+        __tablename__ = "orders"
+
+        id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+        order_date = db.Column(db.DateTime(), nullable=False)
+        required_date = db.Column(db.DateTime(), nullable=False)
+        shipped_date = db.Column(db.DateTime(), nullable=True)
+        freight = db.Column(db.Integer, default=0)
+        ship_name = db.Column(db.String(64), nullable=False)
+        ship_address = db.Column(db.String(64), nullable=False)
+        ship_city = db.Column(db.String(64), nullable=False)
+        ship_region = db.Column(db.String(64), nullable=False)
+        ship_postal_code = db.Column(db.String(64), nullable=True)
+        ship_country = db.Column(db.String(64), nullable=False)
+
+        customer_id = db.Column(db.Integer, db.ForeignKey("customers.id"))
+        employee_id = db.Column(db.Integer, db.ForeignKey("employees.id"))
+        ship_via = db.Column(db.Integer, db.ForeignKey("shippers.id"))
+
+        def __repr__(self):
+            """Representation."""
+            return f"<Orders {self.order_id} {self.customer_id}>"

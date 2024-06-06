@@ -167,3 +167,4 @@ logs
 
 northwind.sqlite
 ./db_backup/northwind.sqlite
+./db_backup/logs
