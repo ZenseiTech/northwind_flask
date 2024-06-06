@@ -14,14 +14,12 @@ depends_on = None
 
 
 def upgrade():
-    op.execute("PRAGMA legacy_alter_table=ON")
     op.alter_column("products", "unit_price", new_column_name="unit_price2")
 
     # ### end Alembic commands ###
 
 
 def downgrade():
-    op.execute("PRAGMA legacy_alter_table=ON")
     op.alter_column("products", "unit_price2", new_column_name="unit_price")
 
     # ### end Alembic commands ###

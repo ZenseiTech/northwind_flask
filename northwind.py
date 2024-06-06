@@ -87,7 +87,7 @@ def profile(length, profile_dir):
     app.run()
 
 
-@app.cli.command("data_load")
+@app.cli.command("load_data")
 def data_load():
     """Call the load data to database."""
     from db_backup import load_data

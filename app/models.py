@@ -60,3 +60,32 @@ class Product(db.Model):
     def __repr__(self):
         """Representation."""
         return "<Products %r>" % self.product_name
+
+
+class Employee(db.Model):
+    """Employee model."""
+
+    __tablename__ = "employees"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    last_name = db.Column(db.String(64), nullable=False)
+    first_name = db.Column(db.String(64), nullable=False)
+    title = db.Column(db.String(64), nullable=False)
+    title_of_courtesy = db.Column(db.String(64))
+    birthdate = db.Column(db.String(64), nullable=False)
+    hire_date = db.Column(db.DateTime(), nullable=False)
+    address = db.Column(db.String(64), nullable=False)
+    city = db.Column(db.String(64), nullable=False)
+    region = db.Column(db.String(64), nullable=False)
+    postal_code = db.Column(db.String(64), nullable=False)
+    country = db.Column(db.String(64), nullable=False)
+    home_phone = db.Column(db.String(64), nullable=False)
+    extension = db.Column(db.String(64))
+    photo = db.Column(db.LargeBinary)
+    notes = db.Column(db.String(64))
+    reports_to = db.Column(db.Integer, db.ForeignKey("employees.id"))
+    photo_path = db.Column(db.String(64))
+
+    def __repr__(self):
+        """Representation."""
+        return f"<Employees {self.first_name} {self.last_name}>"
